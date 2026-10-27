@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070b16">
+<title>Platform 02:17</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-scene="s-intro">
+<div class="world" aria-hidden="true">
+  <div class="sky"></div><div class="fog f1"></div><div class="fog f2"></div>
+  <div class="roof"></div>
+  <div class="lamp-post l1"></div><div class="lamp-post l2"></div><div class="lamp-post l3"></div>
+  <div class="track"></div><div class="far-light" id="farLight"></div>
+  <div class="rain"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="hud" id="hud" hidden>
+  <div class="mini-clock" aria-label="Clock 02:17">02<span class="colon">:</span>17</div>
+  <div class="lights" role="img" aria-label="Platforms visited" id="lights">
+    <i data-p="p1"></i><i data-p="p2"></i><i data-p="p3"></i>
+  </div>
+  <button class="sound" id="sound" aria-pressed="false" type="button">Sound off</button>
+</header>
+<p class="hint" id="hint" role="status" aria-live="polite"></p>
+
+<main>
+<!-- Scene 1 -->
+<section class="scene active" id="s-intro" aria-labelledby="introTitle">
+  <div class="clock" id="introTitle">02<span class="colon">:</span>17</div>
+  <p class="line" data-delay="1800">Some nights, there are things we don't know how to say.</p>
+  <p class="line" data-delay="5200">Maybe tonight, I can finally try.</p>
+  <button class="enter line" data-delay="8200" id="enter" type="button">ENTER THE STATION</button>
+</section>
+
+<!-- Scene 2 -->
+<section class="scene" id="s-board" aria-labelledby="boardTitle">
+  <div class="board">
+    <div class="board-head"><h2 id="boardTitle">DEPARTURES</h2><span>02:17</span></div>
+    <div id="rows">
+      <button class="row" data-go="s-p1" type="button"><b>Platform 01</b><span>What I Couldn't See</span><em data-st="p1">Not yet visited</em></button>
+      <button class="row" data-go="s-p2" type="button"><b>Platform 02</b><span>What I Need to Admit</span><em data-st="p2">Not yet visited</em></button>
+      <button class="row" data-go="s-p3" type="button"><b>Platform 03</b><span>Where I Go From Here</span><em data-st="p3">Not yet visited</em></button>
+    </div>
+    <button class="row final" id="finalRow" data-go="s-bench" type="button" hidden><b>Final</b><span>NO DESTINATION REQUIRED</span><em>Boarding at the end of the platform</em></button>
+  </div>
+  <p class="whisper" id="boardNote">Walk in any order. There's no rush.</p>
+</section>
+
+<!-- Scene 3 -->
+<section class="scene" id="s-p1" aria-labelledby="t1">
+  <h2 id="t1" class="title">Platform 01 <small>What I Couldn't See</small></h2>
+  <div class="caption" id="cap1" aria-live="polite">Tap a ticket on the bench.</div>
+  <div class="bench-wrap">
+    <div class="cone"></div><div class="bulb"></div>
+    <div class="bench">
+      <button class="ticket" data-msg="I think sometimes I got so caught up in what I was feeling that I forgot to really look at what you might be feeling, too." aria-label="Ticket 1" type="button"></button>
+      <button class="ticket" data-msg="When you needed quiet, I heard distance. That was my worry talking. It wasn't something you did." aria-label="Ticket 2" type="button"></button>
+      <button class="ticket" data-msg="Your answers were never the problem. I kept asking you to settle feelings that were mine to settle." aria-label="Ticket 3" type="button"></button>
+      <button class="ticket" data-msg="I'm starting to see how tiring it must have been, being asked for reassurance again and again." aria-label="Ticket 4" type="button"></button>
+    </div>
+  </div>
+  <button class="back" data-go="s-board" type="button">Back to the board</button>
+</section>
+
+<!-- Scene 4 -->
+<section class="scene" id="s-p2" aria-labelledby="t2">
+  <h2 id="t2" class="title">Platform 02 <small>What I Need to Admit</small></h2>
+  <div class="hall">
+    <div class="panel a"><i></i><button type="button" aria-expanded="false">I know I can be too much sometimes.</button><p>Asking again and again never made me feel surer. It only wore you out. That's mine to notice, not yours to fix.</p></div>
+    <div class="panel b"><i></i><button type="button" aria-expanded="false">I know my feelings don't automatically make my actions okay.</button><p>Feeling anxious can explain something. It doesn't excuse how I acted on it.</p></div>
+    <div class="panel c"><i></i><button type="button" aria-expanded="false">I'm sorry for the times I made things heavier for you.</button><p>You didn't owe me comfort. I'm sorry I let it feel like you did.</p></div>
+  </div>
+  <button class="back" data-go="s-board" type="button">Back to the board</button>
+</section>
+
+<!-- Scene 5 -->
+<section class="scene" id="s-p3" aria-labelledby="t3">
+  <h2 id="t3" class="title">Platform 03 <small>Where I Go From Here</small></h2>
+  <div class="signs">
+    <button class="sign s1" data-d="When I feel unsure, I want to sit with it first. Write it down, take a walk, or talk to someone else before bringing it to you. You can be part of my life without being the only place I put my worry." type="button">Learning to handle my own feelings better.</button>
+    <button class="sign s2" data-d="If you're quiet or busy, I'll try to take it as just that. Not as a message about us, and not a reason to ask again to be sure." type="button">Giving you room when you need it.</button>
+    <button class="sign s3" data-d="When you tell me something, I'll try to hear what you actually mean, instead of listening for whether it calms me down." type="button">Listening to understand, not just to feel reassured.</button>
+  </div>
+  <div class="plaque" id="plaque" aria-live="polite">Tap a sign.</div>
+  <p class="promise">None of this is a trade for forgiveness.<br>I can't ask you to believe in words alone. I know consistency is something I have to show, not just promise.</p>
+  <button class="back" data-go="s-board" type="button">Back to the board</button>
+</section>
+
+<!-- Scene 6 -->
+<section class="scene" id="s-bench" aria-labelledby="t6">
+  <h2 id="t6" class="title">The Waiting Bench</h2>
+  <button class="envelope" id="envelope" type="button">Open the letter</button>
+  <article class="letter" id="letter" hidden>
+    <p>Kirana, I'm sorry for the times I let my own feelings become something you had to carry, too. I care about you so much, but I know that caring about someone also means learning when to listen, when to give them space, and when to work on yourself.</p>
+    <p>I'm not making this to ask you to forgive me right away. I just wanted to make something that could tell you what I sometimes struggle to explain properly. I made it slowly, because I wanted it to be about you and not about me.</p>
+    <p>You don't have to figure out what to say after reading this. Take your time, okay?</p>
+    <p>I love you, and I want to learn how to love you better.</p>
+    <p class="sign-off">— japran</p>
+    <button class="quiet" id="toTrain" type="button" hidden>Look down the track</button>
+  </article>
+</section>
+
+<!-- Scene 7 -->
+<section class="scene" id="s-train" aria-labelledby="t7">
+  <h2 id="t7" class="sr">The Last Train</h2>
+  <div class="train" id="train"><span class="door d1"></span><span class="door d2"></span></div>
+  <p class="end e1" id="e1">Some things don't get fixed in one night.</p>
+  <p class="end e2" id="e2">Maybe they get better through the little things we choose to do differently, every day.</p>
+</section>
+</main>
+<div class="blackout" id="blackout"><p>Thank you for staying long enough to read this.</p></div>
+<script src="script.js"></script>
+</body>
+</html>
